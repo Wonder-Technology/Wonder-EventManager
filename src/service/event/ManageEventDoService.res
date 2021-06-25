@@ -48,8 +48,8 @@ let offCustomGlobalEventByHandleFunc = (~eventName, ~handleFunc, ~po) =>
 let stopPropagationCustomEvent = customEvent =>
   HandleCustomEventDoService.stopPropagation(customEvent)
 
-// let triggerCustomGlobalEvent = (customEvent, po) =>
-//   HandleCustomEventDoService.triggerGlobalEvent(customEvent, po)
+let triggerCustomGlobalEvent = (customEvent, po) =>
+  HandleCustomEventDoService.triggerGlobalEvent(customEvent, po)
 
 // let triggerCustomGameObjectEvent = (customEvent, target, po) =>
 //   HandleCustomEventDoService.triggerGameObjectEvent(target, customEvent, po)

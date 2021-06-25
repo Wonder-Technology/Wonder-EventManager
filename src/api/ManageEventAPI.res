@@ -16,11 +16,20 @@
 // let offTouchEventByHandleFunc = (eventName, handleFunc, po) =>
 //   ManageEventDoService.offTouchEventByHandleFunc(~eventName, ~handleFunc, ~po)
 
-// let onCustomGlobalEvent = (eventName, priority, handleFunc, po) =>
-//   ManageEventDoService.onCustomGlobalEvent(~eventName, ~handleFunc, ~po, ~priority, ())
+let onCustomGlobalEvent = (eventName, priority, handleFunc) =>
+  ManageEventDoService.onCustomGlobalEvent(
+    ~eventName,
+    ~handleFunc,
+    ~po=ContainerManager.getPO(),
+    ~priority,
+    (),
+  )->ContainerManager.setPO
 
-// let offCustomGlobalEventByEventName = (eventName, po) =>
-//   ManageEventDoService.offCustomGlobalEventByEventName(~eventName, ~po)
+let offCustomGlobalEventByEventName = eventName =>
+  ManageEventDoService.offCustomGlobalEventByEventName(
+    ~eventName,
+    ~po=ContainerManager.getPO(),
+  )->ContainerManager.setPO
 
 // let offCustomGlobalEventByHandleFunc = (eventName, handleFunc, po) =>
 //   ManageEventDoService.offCustomGlobalEventByHandleFunc(~eventName, ~handleFunc, ~po)
@@ -46,10 +55,12 @@
 //     ~po,
 //   )
 
-// let stopPropagationCustomEvent = ManageEventDoService.stopPropagationCustomEvent
+let stopPropagationCustomEvent = ManageEventDoService.stopPropagationCustomEvent
 
-// let triggerCustomGlobalEvent = (customEvent, po) =>
-//   ManageEventDoService.triggerCustomGlobalEvent(customEvent, po)
+let triggerCustomGlobalEvent = customEvent =>
+  ManageEventDoService.triggerCustomGlobalEvent(customEvent, ContainerManager.getPO())
+  ->Tuple2.getFirst
+  ->ContainerManager.setPO
 
 // let triggerCustomGameObjectEvent = (customEvent, target, po) =>
 //   ManageEventDoService.triggerCustomGameObjectEvent(customEvent, target, po)
@@ -60,8 +71,8 @@
 // let emitCustomGameObjectEvent = (customEvent, target, po) =>
 //   ManageEventDoService.emitCustomGameObjectEvent(customEvent, target, po)
 
-// let createCustomEvent = (eventName, userData) =>
-//   CreateCustomEventDoService.create(eventName, Js.Nullable.to_opt(userData))
+let createCustomEvent = (eventName, userData) =>
+  CreateCustomEventDoService.create(eventName, Js.Nullable.to_opt(userData))
 
 // let getCustomEventUserData = customEvent =>
 //   HandleCustomEventDoService.getCustomEventUserData(customEvent)

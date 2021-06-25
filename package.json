@@ -4,7 +4,8 @@
     "authors": "Wonder",
     "scripts": {
         "watch": "rescript build -w",
-        "build": "rescript"
+        "build": "rescript",
+        "test:watch": "jest --watch --config jest.json"
     },
     "config": {
         "commitizen": {
