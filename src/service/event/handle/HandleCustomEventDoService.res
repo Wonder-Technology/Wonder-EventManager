@@ -43,7 +43,7 @@ let triggerGlobalEvent = (({name}: customEvent) as customEvent, {eventRecord} as
 // let rec _broadcastGameObjectEvent = (eventName, target, customEvent, po) => {
 //   let (po, customEvent) = triggerGameObjectEvent(target, customEvent, po)
 
-//   let transformRecord = RecordTransformMainService.getRecord(po)
+//   let transformRecord = RecordTransformDoService.getRecord(po)
 
 //   HierachyTransformService.unsafeGetChildren(
 //     GetComponentGameObjectService.unsafeGetTransformComponent(target, po.gameObjectRecord),
@@ -60,7 +60,7 @@ let triggerGlobalEvent = (({name}: customEvent) as customEvent, {eventRecord} as
 // let rec _emitGameObjectEvent = (eventName, target, customEvent, po) => {
 //   let (po, customEvent) = triggerGameObjectEvent(target, customEvent, po)
 
-//   let transformRecord = RecordTransformMainService.getRecord(po)
+//   let transformRecord = RecordTransformDoService.getRecord(po)
 
 //   switch HierachyTransformService.getParent(
 //     GetComponentGameObjectService.unsafeGetTransformComponent(target, po.gameObjectRecord),

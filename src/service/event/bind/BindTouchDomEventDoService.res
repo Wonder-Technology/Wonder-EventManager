@@ -3,7 +3,7 @@ open POType
 open EventType
 
 let _addToEventArr = (eventName, eventData, eventArrMap) =>
-  BindDomEventMainService.addToEventArr(
+  BindDomEventDoService.addToEventArr(
     eventName,
     eventData,
     ({priority}: touchDomEventData) => priority,
@@ -11,7 +11,7 @@ let _addToEventArr = (eventName, eventData, eventArrMap) =>
   )
 
 let _removeFromEventArrMapByHandleFunc = (eventName, targetHandleFunc, eventArrMap) =>
-  BindDomEventMainService.removeFromEventArrMapByHandleFunc(
+  BindDomEventDoService.removeFromEventArrMapByHandleFunc(
     eventName,
     (({handleFunc}: touchDomEventData) => handleFunc, targetHandleFunc),
     eventArrMap,

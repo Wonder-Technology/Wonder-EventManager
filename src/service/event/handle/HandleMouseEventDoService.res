@@ -17,7 +17,7 @@ let getLocation = (mouseDomEvent, po) => {
 }
 
 let getLocationInView = (mouseDomEvent, po) =>
-  HandlePointDomEventMainService.getLocationInView(mouseDomEvent, getLocation, po)
+  HandlePointDomEventDoService.getLocationInView(mouseDomEvent, getLocation, po)
 
 let getButton = (mouseDomEvent, po) => {
   // let {browser} = browserDetectRecord
@@ -114,9 +114,9 @@ let _getMovementDeltaWhenPointerLocked = mouseDomEvent => (
 let getMovementDelta = (mouseDomEvent, {eventRecord} as po) =>
   _isPointerLocked(.)
     ? _getMovementDeltaWhenPointerLocked(mouseDomEvent)
-    : HandlePointDomEventMainService.getMovementDelta(
+    : HandlePointDomEventDoService.getMovementDelta(
         getLocation(mouseDomEvent, po),
-        MouseEventService.getLastXY(eventRecord),
+        MouseEventDoService.getLastXY(eventRecord),
         po,
       )
 
@@ -153,7 +153,7 @@ let execEventHandle = (mouseEvent: mouseEvent, {eventRecord} as po) => {
 
 let setLastXY = (lastX, lastY, {eventRecord} as po) => {
   ...po,
-  eventRecord: MouseEventService.setLastXY(lastX, lastY, eventRecord),
+  eventRecord: MouseEventDoService.setLastXY(lastX, lastY, eventRecord),
 }
 
 let setLastXYByLocation = (mouseEvent, {eventRecord} as po) => {

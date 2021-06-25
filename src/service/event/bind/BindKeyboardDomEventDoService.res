@@ -1,49 +1,49 @@
-open POType
+open POType;
 
 open EventType
 
 let _addToEventArr = (eventName, eventData, eventArrMap) =>
-  BindDomEventMainService.addToEventArr(
+  BindDomEventDoService.addToEventArr(
     eventName,
     eventData,
-    ({priority}: mouseDomEventData) => priority,
+    ({priority}: keyboardDomEventData) => priority,
     eventArrMap,
   )
 
 let _removeFromEventArrMapByHandleFunc = (eventName, targetHandleFunc, eventArrMap) =>
-  BindDomEventMainService.removeFromEventArrMapByHandleFunc(
+  BindDomEventDoService.removeFromEventArrMapByHandleFunc(
     eventName,
-    (({handleFunc}: mouseDomEventData) => handleFunc, targetHandleFunc),
+    (({handleFunc}: keyboardDomEventData) => handleFunc, targetHandleFunc),
     eventArrMap,
   )
 
 let bind = (eventName, priority, handleFunc, {eventRecord} as po) => {
-  let {mouseDomEventDataArrMap} = eventRecord
+  let {keyboardDomEventDataArrMap} = eventRecord
 
   {
     ...po,
     eventRecord: {
       ...eventRecord,
-      mouseDomEventDataArrMap: _addToEventArr(
+      keyboardDomEventDataArrMap: _addToEventArr(
         eventName -> domEventNameToInt,
-        {priority: priority, handleFunc: handleFunc},
-        mouseDomEventDataArrMap,
+        ({priority: priority, handleFunc: handleFunc}: keyboardDomEventData),
+        keyboardDomEventDataArrMap,
       ),
     },
   }
 }
 
 let unbindByHandleFunc = (eventName, handleFunc, {eventRecord} as po) => {
-  let {mouseDomEventDataArrMap} = eventRecord
+  let {keyboardDomEventDataArrMap} = eventRecord
 
   {
     ...po,
     eventRecord: {
       ...eventRecord,
-      mouseDomEventDataArrMap: _removeFromEventArrMapByHandleFunc(
+      keyboardDomEventDataArrMap: _removeFromEventArrMapByHandleFunc(
         eventName -> domEventNameToInt,
         handleFunc,
-        mouseDomEventDataArrMap,
+        keyboardDomEventDataArrMap,
       ),
     },
   }

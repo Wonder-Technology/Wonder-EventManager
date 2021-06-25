@@ -28,12 +28,12 @@ let _getLocation = (touchDomEvent, po) => {
 }
 
 let _getLocationInView = (touchDomEvent, po) =>
-  HandlePointDomEventMainService.getLocationInView(touchDomEvent, _getLocation, po)
+  HandlePointDomEventDoService.getLocationInView(touchDomEvent, _getLocation, po)
 
 let _getMovementDelta = (touchDomEvent, {eventRecord} as po) =>
-  HandlePointDomEventMainService.getMovementDelta(
+  HandlePointDomEventDoService.getMovementDelta(
     _getLocation(touchDomEvent, po),
-    TouchEventService.getLastXY(eventRecord),
+    TouchEventDoService.getLastXY(eventRecord),
     po,
   )
 
@@ -49,7 +49,7 @@ let _convertTouchDomEventToTouchEvent = (eventName, touchDomEvent, po): touchEve
 let execEventHandle = (eventName, touchDomEvent, {eventRecord} as po) => {
   let {touchDomEventDataArrMap} = eventRecord
 
-  /* HandlePointDomEventMainService.preventDefault(
+  /* HandlePointDomEventDoService.preventDefault(
     touchDomEvent -> touchDomEventToPointDomEvent,
   ); */
 
@@ -68,7 +68,7 @@ let execEventHandle = (eventName, touchDomEvent, {eventRecord} as po) => {
 
 let setLastXY = (lastX, lastY, {eventRecord} as po) => {
   ...po,
-  eventRecord: TouchEventService.setLastXY(lastX, lastY, eventRecord),
+  eventRecord: TouchEventDoService.setLastXY(lastX, lastY, eventRecord),
 }
 
 let setLastXYByLocation = (eventName, touchDomEvent, {eventRecord} as po) => {
