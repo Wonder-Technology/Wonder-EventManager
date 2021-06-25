@@ -221,4 +221,6 @@ let create = (): POType.po => {
     },
   },
   canvas: None,
+  body: None,
+  browser: BrowserType.Chrome,
 }

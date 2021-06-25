@@ -60,7 +60,7 @@ let triggerCustomGlobalEvent = (customEvent, po) =>
 // let emitCustomGameObjectEvent = (customEvent, target, po) =>
 //   HandleCustomEventDoService.emitGameObjectEvent(target, customEvent, po)
 
-let setDomEventStreamSubscription = (domEventStreamSubscription, {eventRecord} as po) => {
+let setDomEventStreamSubscription = ({eventRecord} as po, domEventStreamSubscription) => {
   ...po,
   eventRecord: {
     ...eventRecord,

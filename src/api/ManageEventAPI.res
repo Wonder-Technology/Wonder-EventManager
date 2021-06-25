@@ -1,20 +1,50 @@
-// let onMouseEvent = (eventName, priority, handleFunc, po) =>
-//   ManageEventDoService.onMouseEvent(~eventName, ~handleFunc, ~po, ~priority, ())
+let onMouseEvent = (eventName, priority, handleFunc) =>
+  ManageEventDoService.onMouseEvent(
+    ~eventName,
+    ~handleFunc,
+    ~po=ContainerManager.getPO(),
+    ~priority,
+    (),
+  )->ContainerManager.setPO
 
-// let onKeyboardEvent = (eventName, priority, handleFunc, po) =>
-//   ManageEventDoService.onKeyboardEvent(~eventName, ~handleFunc, ~po, ~priority, ())
+let onKeyboardEvent = (eventName, priority, handleFunc) =>
+  ManageEventDoService.onKeyboardEvent(
+    ~eventName,
+    ~handleFunc,
+    ~po=ContainerManager.getPO(),
+    ~priority,
+    (),
+  )->ContainerManager.setPO
 
-// let onTouchEvent = (eventName, priority, handleFunc, po) =>
-//   ManageEventDoService.onTouchEvent(~eventName, ~handleFunc, ~po, ~priority, ())
+let onTouchEvent = (eventName, priority, handleFunc) =>
+  ManageEventDoService.onTouchEvent(
+    ~eventName,
+    ~handleFunc,
+    ~po=ContainerManager.getPO(),
+    ~priority,
+    (),
+  )->ContainerManager.setPO
 
-// let offMouseEventByHandleFunc = (eventName, handleFunc, po) =>
-//   ManageEventDoService.offMouseEventByHandleFunc(~eventName, ~handleFunc, ~po)
+let offMouseEventByHandleFunc = (eventName, handleFunc) =>
+  ManageEventDoService.offMouseEventByHandleFunc(
+    ~eventName,
+    ~handleFunc,
+    ~po=ContainerManager.getPO(),
+  )->ContainerManager.setPO
 
-// let offKeyboardEventByHandleFunc = (eventName, handleFunc, po) =>
-//   ManageEventDoService.offKeyboardEventByHandleFunc(~eventName, ~handleFunc, ~po)
+let offKeyboardEventByHandleFunc = (eventName, handleFunc) =>
+  ManageEventDoService.offKeyboardEventByHandleFunc(
+    ~eventName,
+    ~handleFunc,
+    ~po=ContainerManager.getPO(),
+  )->ContainerManager.setPO
 
-// let offTouchEventByHandleFunc = (eventName, handleFunc, po) =>
-//   ManageEventDoService.offTouchEventByHandleFunc(~eventName, ~handleFunc, ~po)
+let offTouchEventByHandleFunc = (eventName, handleFunc) =>
+  ManageEventDoService.offTouchEventByHandleFunc(
+    ~eventName,
+    ~handleFunc,
+    ~po=ContainerManager.getPO(),
+  )->ContainerManager.setPO
 
 let onCustomGlobalEvent = (eventName, priority, handleFunc) =>
   ManageEventDoService.onCustomGlobalEvent(
@@ -31,8 +61,12 @@ let offCustomGlobalEventByEventName = eventName =>
     ~po=ContainerManager.getPO(),
   )->ContainerManager.setPO
 
-// let offCustomGlobalEventByHandleFunc = (eventName, handleFunc, po) =>
-//   ManageEventDoService.offCustomGlobalEventByHandleFunc(~eventName, ~handleFunc, ~po)
+let offCustomGlobalEventByHandleFunc = (eventName, handleFunc) =>
+  ManageEventDoService.offCustomGlobalEventByHandleFunc(
+    ~eventName,
+    ~handleFunc,
+    ~po=ContainerManager.getPO(),
+  )->ContainerManager.setPO
 
 // let onCustomGameObjectEvent = (eventName, target, priority, handleFunc, po) =>
 //   ManageEventDoService.onCustomGameObjectEvent(

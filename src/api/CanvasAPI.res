@@ -1,3 +1,3 @@
 let setCanvas = canvas => {
-  CanvasDoService.setCanvas(canvas, ContainerManager.getPO())->ContainerManager.setPO
+  ContainerManager.getPO()->CanvasDoService.setCanvas(canvas)->ContainerManager.setPO
 }

@@ -4,7 +4,7 @@ let getCanvas = po => {
   po.canvas
 }
 
-let setCanvas = (canvas, po) => {
+let setCanvas = (po, canvas) => {
   {
     ...po,
     canvas: Some(canvas),

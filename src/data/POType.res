@@ -31,4 +31,6 @@ and eventRecord = {
 and po = {
   eventRecord: eventRecord,
   canvas: option<Dom.htmlCanvasElement>,
+  body: option<Dom.htmlBodyElement>,
+  browser: BrowserType.browser,
 }

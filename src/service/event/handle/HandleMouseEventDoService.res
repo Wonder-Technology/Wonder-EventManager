@@ -130,7 +130,7 @@ let convertMouseDomEventToMouseEvent = (eventName, mouseDomEvent, po): mouseEven
   event: mouseDomEvent,
 }
 
-let execEventHandle = (mouseEvent: mouseEvent, {eventRecord} as po) => {
+let execEventHandle = ({eventRecord} as po, mouseEvent: mouseEvent) => {
   let {name} = mouseEvent
 
   let {mouseDomEventDataArrMap} = eventRecord
@@ -151,22 +151,22 @@ let execEventHandle = (mouseEvent: mouseEvent, {eventRecord} as po) => {
   }
 }
 
-let setLastXY = (lastX, lastY, {eventRecord} as po) => {
+let setLastXY = ({eventRecord} as po, lastX, lastY) => {
   ...po,
   eventRecord: MouseEventDoService.setLastXY(lastX, lastY, eventRecord),
 }
 
-let setLastXYByLocation = (mouseEvent, {eventRecord} as po) => {
+let setLastXYByLocation = ({eventRecord} as po, mouseEvent) => {
   let {location}: mouseEvent = mouseEvent
 
   let (x, y) = location
 
-  setLastXY(Some(x), Some(y), po)
+  setLastXY(po, Some(x), Some(y))
 }
 
 let getIsDrag = ({eventRecord} as po) => eventRecord.mouseEventData.isDrag
 
-let setIsDrag = (isDrag, {eventRecord} as po) => {
+let setIsDrag = ({eventRecord} as po, isDrag) => {
   ...po,
   eventRecord: {
     ...eventRecord,
@@ -177,5 +177,5 @@ let setIsDrag = (isDrag, {eventRecord} as po) => {
   },
 }
 
-let setLastXYWhenMouseMove = (mouseEvent, po) =>
-  getIsDrag(po) ? po : setLastXYByLocation(mouseEvent, po)
+let setLastXYWhenMouseMove = (po, mouseEvent) =>
+  getIsDrag(po) ? po : setLastXYByLocation(po, mouseEvent)

@@ -46,19 +46,17 @@ let _convertTouchDomEventToTouchEvent = (eventName, touchDomEvent, po): touchEve
   event: touchDomEvent,
 }
 
-let execEventHandle = (eventName, touchDomEvent, {eventRecord} as po) => {
+let execEventHandle = ({eventRecord} as po, eventName, touchDomEvent) => {
   let {touchDomEventDataArrMap} = eventRecord
 
   /* HandlePointDomEventDoService.preventDefault(
     touchDomEvent -> touchDomEventToPointDomEvent,
   ); */
 
-  switch touchDomEventDataArrMap -> MutableSparseMap.get(
-    eventName -> domEventNameToInt,
-  ) {
+  switch touchDomEventDataArrMap->MutableSparseMap.get(eventName->domEventNameToInt) {
   | None => po
   | Some(arr) =>
-    arr -> ArraySt.reduceOneParam(
+    arr->ArraySt.reduceOneParam(
       (. po, {handleFunc}: touchDomEventData) =>
         handleFunc(. _convertTouchDomEventToTouchEvent(eventName, touchDomEvent, po), po),
       po,
@@ -66,22 +64,22 @@ let execEventHandle = (eventName, touchDomEvent, {eventRecord} as po) => {
   }
 }
 
-let setLastXY = (lastX, lastY, {eventRecord} as po) => {
+let setLastXY = ({eventRecord} as po, lastX, lastY) => {
   ...po,
   eventRecord: TouchEventDoService.setLastXY(lastX, lastY, eventRecord),
 }
 
-let setLastXYByLocation = (eventName, touchDomEvent, {eventRecord} as po) => {
+let setLastXYByLocation = ({eventRecord} as po, eventName, touchDomEvent) => {
   let {location}: touchEvent = _convertTouchDomEventToTouchEvent(eventName, touchDomEvent, po)
 
   let (x, y) = location
 
-  setLastXY(Some(x), Some(y), po)
+  setLastXY(po, Some(x), Some(y))
 }
 
 let getIsDrag = ({eventRecord} as po) => eventRecord.touchEventData.isDrag
 
-let setIsDrag = (isDrag, {eventRecord} as po) => {
+let setIsDrag = ({eventRecord} as po, isDrag) => {
   ...po,
   eventRecord: {
     ...eventRecord,
@@ -92,5 +90,5 @@ let setIsDrag = (isDrag, {eventRecord} as po) => {
   },
 }
 
-let setLastXYWhenTouchMove = (eventName, touchDomEvent, po) =>
-  getIsDrag(po) ? po : setLastXYByLocation(eventName, touchDomEvent, po)
+let setLastXYWhenTouchMove = (po, eventName, touchDomEvent) =>
+  getIsDrag(po) ? po : setLastXYByLocation(po, eventName, touchDomEvent)
