@@ -7,7 +7,7 @@ let _getKeyCode = keyboardDomEvent => keyboardDomEvent["keyCode"]
 let _getShiftKey = keyboardDomEvent => keyboardDomEvent["shiftKey"]
 
 let _getKeyFromSpecialKeyMap = (keyCode, char, specialKeyMap) =>
-  switch specialKeyMap->MutableSparseMap.get(keyCode) {
+  switch specialKeyMap->WonderCommonlib.MutableSparseMap.get(keyCode) {
   | None => char
   | Some(key) => key
   }
@@ -17,9 +17,9 @@ let _handleShiftKey = (
   char,
   (shiftKeyByKeyCodeMap, shiftKeyByCharCodeMap, specialKeyMap),
 ) =>
-  switch shiftKeyByKeyCodeMap->MutableSparseMap.get(keyCode) {
+  switch shiftKeyByKeyCodeMap->WonderCommonlib.MutableSparseMap.get(keyCode) {
   | None =>
-    switch shiftKeyByCharCodeMap->MutableHashMap.get(char) {
+    switch shiftKeyByCharCodeMap->WonderCommonlib.MutableHashMap.get(char) {
     | None => _getKeyFromSpecialKeyMap(keyCode, char, specialKeyMap)
     | Some(upperCaseChar) => upperCaseChar
     }
@@ -53,10 +53,10 @@ let _convertKeyboardDomEventToKeyboardEvent = (eventName, keyboardDomEvent, po):
 let execEventHandle = ({eventRecord} as po, eventName, keyboardDomEvent) => {
   let {keyboardDomEventDataArrMap} = eventRecord
 
-  switch keyboardDomEventDataArrMap->MutableSparseMap.get(eventName->domEventNameToInt) {
+  switch keyboardDomEventDataArrMap->WonderCommonlib.MutableSparseMap.get(eventName->domEventNameToInt) {
   | None => po
   | Some(arr) =>
-    arr->ArraySt.reduceOneParam(
+    arr->WonderCommonlib.ArraySt.reduceOneParam(
       (. po, {handleFunc}: keyboardDomEventData) =>
         handleFunc(. _convertKeyboardDomEventToKeyboardEvent(eventName, keyboardDomEvent, po), po),
       po,

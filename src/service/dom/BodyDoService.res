@@ -1,7 +1,7 @@
 open POType
 
 let unsafeGetBody = po => {
-  po.body->OptionSt.unsafeGet
+  po.body->WonderCommonlib.OptionSt.unsafeGet
 }
 
 let setBody = (po, body) => {

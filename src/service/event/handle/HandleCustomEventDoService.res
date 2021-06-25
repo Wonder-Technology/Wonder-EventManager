@@ -3,7 +3,7 @@ open POType
 open EventType
 
 let _triggerHandleFunc = (customEvent, arr, po) =>
-  arr -> ArraySt.reduceOneParam(
+  arr -> WonderCommonlib.ArraySt.reduceOneParam(
     (. (po, customEvent), {handleFunc}) =>
       customEvent.isStopPropagation ? (po, customEvent) : handleFunc(. customEvent, po),
     (po, customEvent),
@@ -17,7 +17,7 @@ let stopPropagation = customEvent => {
 let triggerGlobalEvent = (({name}: customEvent) as customEvent, {eventRecord} as po) => {
   let {customGlobalEventArrMap} = eventRecord
 
-  switch customGlobalEventArrMap -> MutableHashMap.get(name) {
+  switch customGlobalEventArrMap -> WonderCommonlib.MutableHashMap.get(name) {
   | None => (po, customEvent)
   | Some(arr) => _triggerHandleFunc(customEvent, arr, po)
   }
@@ -30,10 +30,10 @@ let triggerGlobalEvent = (({name}: customEvent) as customEvent, {eventRecord} as
 // ) => {
 //   let {customGameObjectEventArrMap} = eventRecord
 
-//   switch customGameObjectEventArrMap -> MutableHashMap.get(name) {
+//   switch customGameObjectEventArrMap -> WonderCommonlib.MutableHashMap.get(name) {
 //   | None => (po, customEvent)
 //   | Some(gameObjectEventListMap) =>
-//     switch gameObjectEventListMap -> MutableSparseMap.get(target) {
+//     switch gameObjectEventListMap -> WonderCommonlib.MutableSparseMap.get(target) {
 //     | None => (po, customEvent)
 //     | Some(arr) => _triggerHandleFunc({...customEvent, target: Some(target)}, arr, po)
 //     }
@@ -48,7 +48,7 @@ let triggerGlobalEvent = (({name}: customEvent) as customEvent, {eventRecord} as
 //   HierachyTransformService.unsafeGetChildren(
 //     GetComponentGameObjectService.unsafeGetTransformComponent(target, po.gameObjectRecord),
 //     transformRecord,
-//   ) -> ArraySt.reduceOneParam(
+//   ) -> WonderCommonlib.ArraySt.reduceOneParam(
 //     (. po, child) => _broadcastGameObjectEvent(eventName, child, customEvent, po),
 //     po,
 //   )

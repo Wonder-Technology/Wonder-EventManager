@@ -199,11 +199,11 @@ function(){
 let create = (): POType.po => {
   eventRecord: {
     domEventStreamSubscription: None,
-    mouseDomEventDataArrMap: MutableSparseMap.createEmpty(),
-    keyboardDomEventDataArrMap: MutableSparseMap.createEmpty(),
-    touchDomEventDataArrMap: MutableSparseMap.createEmpty(),
-    customGlobalEventArrMap: MutableHashMap.createEmpty(),
-    customGameObjectEventArrMap: MutableHashMap.createEmpty(),
+    mouseDomEventDataArrMap: WonderCommonlib.MutableSparseMap.createEmpty(),
+    keyboardDomEventDataArrMap: WonderCommonlib.MutableSparseMap.createEmpty(),
+    touchDomEventDataArrMap: WonderCommonlib.MutableSparseMap.createEmpty(),
+    customGlobalEventArrMap: WonderCommonlib.MutableHashMap.createEmpty(),
+    customGameObjectEventArrMap: WonderCommonlib.MutableHashMap.createEmpty(),
     mouseEventData: {
       lastX: None,
       lastY: None,

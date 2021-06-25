@@ -135,9 +135,9 @@ let execEventHandle = ({eventRecord} as po, mouseEvent: mouseEvent) => {
 
   let {mouseDomEventDataArrMap} = eventRecord
 
-  switch mouseDomEventDataArrMap->MutableSparseMap.get(name->domEventNameToInt) {
+  switch mouseDomEventDataArrMap->WonderCommonlib.MutableSparseMap.get(name->domEventNameToInt) {
   | None => po
-  | Some(arr) => arr->ArraySt.reduceOneParam((. po, {handleFunc}: mouseDomEventData) =>
+  | Some(arr) => arr->WonderCommonlib.ArraySt.reduceOneParam((. po, {handleFunc}: mouseDomEventData) =>
       handleFunc(.
         /* convertMouseDomEventToMouseEvent(
                   eventName,

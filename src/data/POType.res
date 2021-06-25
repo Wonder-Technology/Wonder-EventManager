@@ -16,13 +16,13 @@ and customEventData = {
 }
 and eventRecord = {
   domEventStreamSubscription: option<WonderBsMost.Most.subscription>,
-  mouseDomEventDataArrMap: MutableSparseMap.t<int, array<mouseDomEventData>>,
-  keyboardDomEventDataArrMap: MutableSparseMap.t<int, array<keyboardDomEventData>>,
-  touchDomEventDataArrMap: MutableSparseMap.t<int, array<touchDomEventData>>,
-  customGlobalEventArrMap: MutableHashMap.t<string, array<customEventData>>,
-  customGameObjectEventArrMap: MutableHashMap.t<
+  mouseDomEventDataArrMap: WonderCommonlib.MutableSparseMap.t<int, array<mouseDomEventData>>,
+  keyboardDomEventDataArrMap: WonderCommonlib.MutableSparseMap.t<int, array<keyboardDomEventData>>,
+  touchDomEventDataArrMap: WonderCommonlib.MutableSparseMap.t<int, array<touchDomEventData>>,
+  customGlobalEventArrMap: WonderCommonlib.MutableHashMap.t<string, array<customEventData>>,
+  customGameObjectEventArrMap: WonderCommonlib.MutableHashMap.t<
     string,
-    MutableSparseMap.t<int, array<customEventData>>,
+    WonderCommonlib.MutableSparseMap.t<int, array<customEventData>>,
   >,
   mouseEventData: EventType.mouseEventData,
   keyboardEventData: EventType.keyboardEventData,

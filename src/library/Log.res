@@ -6,7 +6,7 @@ let printForDebug = value => {
 }
 
 let printListForDebug = list => {
-  Js.log(list->ListSt.toArray)
+  Js.log(list->WonderCommonlib.ListSt.toArray)
   list
 }
 

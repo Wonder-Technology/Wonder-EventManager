@@ -53,10 +53,10 @@ let execEventHandle = ({eventRecord} as po, eventName, touchDomEvent) => {
     touchDomEvent -> touchDomEventToPointDomEvent,
   ); */
 
-  switch touchDomEventDataArrMap->MutableSparseMap.get(eventName->domEventNameToInt) {
+  switch touchDomEventDataArrMap->WonderCommonlib.MutableSparseMap.get(eventName->domEventNameToInt) {
   | None => po
   | Some(arr) =>
-    arr->ArraySt.reduceOneParam(
+    arr->WonderCommonlib.ArraySt.reduceOneParam(
       (. po, {handleFunc}: touchDomEventData) =>
         handleFunc(. _convertTouchDomEventToTouchEvent(eventName, touchDomEvent, po), po),
       po,

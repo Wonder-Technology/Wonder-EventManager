@@ -25,6 +25,7 @@
         "wonder-bs-sinon": "^0.1.9"
     },
     "dependencies": {
-        "wonder-bs-most": "^0.0.5"
+        "wonder-bs-most": "^0.0.5",
+        "wonder-commonlib": "^0.3.0"
     }
 }

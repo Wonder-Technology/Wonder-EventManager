@@ -85,7 +85,7 @@ let prepare = (
 let prepareForPointerLock = (sandbox, po) => {
   open Sinon
 
-  let canvas = CanvasDoService.getCanvas(po)->OptionSt.unsafeGet->Obj.magic
+  let canvas = CanvasDoService.getCanvas(po)->WonderCommonlib.OptionSt.unsafeGet->Obj.magic
   let requestPointerLockStub = createEmptyStubWithJsObjSandbox(sandbox)
   canvas["requestPointerLock"] = requestPointerLockStub
 

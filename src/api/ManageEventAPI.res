@@ -93,7 +93,7 @@ let stopPropagationCustomEvent = ManageEventDoService.stopPropagationCustomEvent
 
 let triggerCustomGlobalEvent = customEvent =>
   ManageEventDoService.triggerCustomGlobalEvent(customEvent, ContainerManager.getPO())
-  ->Tuple2.getFirst
+  ->WonderCommonlib.Tuple2.getFirst
   ->ContainerManager.setPO
 
 // let triggerCustomGameObjectEvent = (customEvent, target, po) =>

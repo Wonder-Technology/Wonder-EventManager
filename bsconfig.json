@@ -20,7 +20,8 @@
         "wonder-bs-sinon"
     ],
     "bs-dependencies": [
-        "wonder-bs-most"
+        "wonder-bs-most",
+        "wonder-commonlib"
     ],
     "package-specs": [
         "commonjs"
