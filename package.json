@@ -1,6 +1,6 @@
 {
     "name": "wonder-eventmanager",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "authors": "Wonder",
     "scripts": {
         "watch": "rescript build -w",
@@ -26,9 +26,9 @@
     "dependencies": {
         "rescript": "^9.1.4",
         "wonder-bs-most": "^0.0.5",
-        "wonder-commonlib": "^0.3.1"
+        "wonder-commonlib": "^0.3.2"
     },
     "resolutions": {
-        "wonder-commonlib": "^0.3.1"
+        "wonder-commonlib": "^0.3.2"
     }
 }
