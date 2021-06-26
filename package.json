@@ -1,6 +1,6 @@
 {
     "name": "wonder-eventmanager",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "authors": "Wonder",
     "scripts": {
         "watch": "rescript build -w",

@@ -437,25 +437,7 @@ let fromDomEvent = po =>
   )
 
 let handleDomEventStreamError = e => {
-  let message = Obj.magic(e)["message"]
-  let stack = Obj.magic(e)["stack"]
-
-  Log.logForDebug(
-    Log.buildDebugMessage(
-      ~description=j`from dom event stream error`,
-      ~params=j`message:$message\\nstack:$stack`,
-    ),
-  )
-
-  /* WonderLog.Log.fatal(
-       WonderLog.Log.buildFatalMessage(
-         ~title="InitEventJob",
-         ~description={j|from dom event stream error|j},
-         ~reason="",
-         ~solution={j||j},
-         ~params={j|message:$message\nstack:$stack|j},
-       ),
-     ); */
+  Log.logForDebug(e)
 }
 
 let initEvent = po => {
