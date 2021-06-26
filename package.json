@@ -26,6 +26,9 @@
     },
     "dependencies": {
         "wonder-bs-most": "^0.0.5",
-        "wonder-commonlib": "^0.3.0"
+        "wonder-commonlib": "^0.3.1"
+    },
+    "resolutions": {
+        "wonder-commonlib": "^0.3.1"
     }
 }
