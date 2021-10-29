@@ -26,6 +26,18 @@
     "package-specs": [
         "commonjs"
     ],
+    "gentypeconfig": {
+        "language": "typescript",
+        "shims": {
+            "Js": "Js"
+        },
+        "module": "es6",
+        "importPath": "relative",
+        "debug": {
+            "all": false
+        },
+        "exportInterfaces": false
+    },
     "namespace": true,
     "suffix": ".bs.js",
     "warnings": {

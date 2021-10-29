@@ -1,3 +1,4 @@
+@genType
 type browser =
   | Chrome
   | Firefox
